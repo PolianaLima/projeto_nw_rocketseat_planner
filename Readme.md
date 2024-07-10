@@ -33,7 +33,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 - [Git](https://git-scm.com)
 - [JDK 21](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
 - [Maven](https://maven.apache.org/download.cgi)
-- [H2](https://www.h2database.com/html/main.html) - Banco de dados incluido no projeto pelo maven 
+- [POSTGRESQL](https://www.postgresql.org/)
 
 ### 🎲 Rodando o Back End (servidor)
 
