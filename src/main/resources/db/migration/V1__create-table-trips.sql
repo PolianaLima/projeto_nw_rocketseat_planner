@@ -1,5 +1,5 @@
 CREATE TABLE trips (
-    id UUID DEFAULT RANDOM_UUID() PRIMARY KEY,
+    id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     destination VARCHAR(255) NOT NULL,
     starts_at TIMESTAMP NOT NULL,
     ends_at TIMESTAMP NOT NULL,
