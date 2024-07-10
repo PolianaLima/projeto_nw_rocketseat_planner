@@ -59,7 +59,6 @@ $ mvn clean install
 - [DevTools](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-devtools)
 - [Sping Web](https://spring.io/guides/gs/serving-web-content/)
 - [Postman](https://www.postman.com/)
-- [PostgreSQL](https://www.postgresql.org/)
 ---
 
 
