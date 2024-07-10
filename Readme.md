@@ -51,7 +51,7 @@ $ mvn clean install
 ### 🛠 Tecnologias
 - [Java21](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
 - [Maven](https://maven.apache.org/download.cgi)
-- [H2](https://www.h2database.com/html/main.html)
+- [POSTGRESQL](https://www.postgresql.org/)
 - [Spring Boot](https://spring.io/projects/spring-boot)
 - [JPA](https://spring.io/projects/spring-data-jpa)
 - [Lombok](https://projectlombok.org/)
