@@ -21,7 +21,14 @@ public class ActivityService {
     }
 
     public List<ActivityData> getAllActivitiesFromTrip(UUID tripId) {
-        return this.activityRepository.findByTripId(tripId).stream().map(activity ->
-                new ActivityData(activity.getId(), activity.getTitle(), activity.getOccursAt())).toList();
+        return this.activityRepository.findByTripId(tripId).stream().map(this::to).toList();
+    }
+
+    private ActivityData to(Activity activity) {
+        return new ActivityData(
+                activity.getId(),
+                activity.getTitle(),
+                activity.getOccursAt()
+        );
     }
 }

@@ -20,7 +20,14 @@ public class LinkService {
     }
 
     public List<LinkData> getAllLinksFromTrip(UUID tripId) {
-        return this.linkRepository.findByTripId(tripId).stream().map(link ->
-                new LinkData(link.getId(), link.getTitle(), link.getUrl())).toList();
+        return this.linkRepository.findByTripId(tripId).stream().map(this::to).toList();
+    }
+
+    private LinkData to(Link link) {
+        return new LinkData(
+                link.getId(),
+                link.getTitle(),
+                link.getUrl()
+        );
     }
 }
