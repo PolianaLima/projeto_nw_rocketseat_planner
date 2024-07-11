@@ -1,5 +1,6 @@
 package com.rocketseat.planner.participant;
 
+import com.rocketseat.planner.exceptions.RecursoNaoEncontradoException;
 import com.rocketseat.planner.trip.Trip;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -30,8 +31,15 @@ public class ParticipantService {
         return this.participantRepository.findByTripId(tripId).stream().map(this::to).toList();
     }
 
+    public ParticipantData confirmParticipant(UUID idParticipant, ParticipantRequestPayload payload){
+        Participant participant = this.participantRepository.findById(idParticipant)
+                .orElseThrow(() -> new RecursoNaoEncontradoException("Participante não encontrado."));
 
-    public void triggerConfirmationEmailToTrip(UUID tripId) {
+        participant.setIsConfirmed(true);
+        participant.setName(payload.name());
+
+        Participant save = this.participantRepository.save(participant);
+         return to(save);
     }
 
     public void triggerConfirmationEmailToParticipant(String email) {

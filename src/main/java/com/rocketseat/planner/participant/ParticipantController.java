@@ -12,23 +12,12 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ParticipantController {
 
-    private final ParticipantRepository participantRepository;
+    private final ParticipantService participantService;
 
     @PostMapping("/{id}/confirm")
-    public ResponseEntity<Participant> confirmParticipant(@PathVariable UUID id, @RequestBody ParticipantRequestPayload payload){
-        Optional<Participant> participant = this.participantRepository.findById(id);
-        if(participant.isPresent()){
-            Participant rawParticipant = participant.get();
-
-            rawParticipant.setIsConfirmed(true);
-            rawParticipant.setName(payload.name());
-
-            this.participantRepository.save(rawParticipant);
-
-            return ResponseEntity.ok(rawParticipant);
-        }
-
-        return ResponseEntity.notFound().build();
+    public ResponseEntity<ParticipantData> confirmParticipant(@PathVariable UUID id, @RequestBody ParticipantRequestPayload payload){
+        ParticipantData participant = participantService.confirmParticipant(id, payload);
+        return ResponseEntity.ok(participant);
     }
 
 }
